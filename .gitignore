@@ -1,0 +1,56 @@
+# Dependencias
+node_modules/
+npm-debug.log
+yarn-error.log
+yarn-debug.log
+
+# Frontend (Next.js)
+frontend/.next/
+frontend/out/
+frontend/build/
+frontend/.swc/
+
+# Backend y Variables de Entorno
+backend/.env
+frontend/.env
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/.env.production.local
+.env
+.env.local
+.env.*.local
+
+# MacOS
+.DS_Store
+
+# Prisma
+backend/prisma/migrations/
+backend/prisma/*.db
+backend/prisma/*.db-journal
+
+# Logs
+logs
+*.log
+
+# Entornos Virtuale
+venv/
+.venv/
+env/
+
+# Editor de Código
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Archivos propios del OS
+Thumbs.db
+
+#Agente
+.agents/
+.antigravitycli/
+skills-lock.json

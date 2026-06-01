@@ -1,0 +1,42 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id       String @id @default(uuid())
+  username String @unique
+  password String
+  role     String // ADMIN, COMERCIAL, VIEWER
+}
+
+model Opportunity {
+  id                       String   @id @default(uuid())
+  company_name             String
+  contact_name             String
+  contact_email            String
+  opportunity_name         String
+  description              String   @db.Text
+  estimated_value          Float
+  currency                 String   // COP, USD, CLP, UF
+  stage                    String   // Lead nuevo, Contactado, Diagnóstico, Propuesta enviada, Negociación, Ganado, Perdido
+  priority                 String   // Baja, Media, Alta, Crítica
+  probability              Int      // 0 - 100
+  owner                    String
+  next_follow_up_date      DateTime
+  last_interaction_summary String?  @db.Text
+  ai_recommendation        String?  @db.Text
+  created_at               DateTime @default(now())
+  updated_at               DateTime @updatedAt
+}
+
+model ChatMessage {
+  id         String   @id @default(uuid())
+  role       String   // 'user' | 'ai'
+  content    String   @db.Text
+  created_at DateTime @default(now())
+}
